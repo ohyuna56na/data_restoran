@@ -1,6 +1,11 @@
 // server.js
 const express = require('express');
 const db = require('./db');
+
+db.getConnection()
+  .then(() => console.log('✅ Database connected successfully'))
+  .catch(err => console.error('❌ Database connection failed:', err));
+
 const app = express();
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
