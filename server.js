@@ -7,9 +7,10 @@ db.getConnection()
   .catch(err => console.error('❌ Database connection failed:', err));
 
 const app = express();
-const port = process.env.PORT || 8080;
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+const PORT = process.env.PORT || 8080;
+
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`✅ Server is running on port ${PORT}`);
 });
 
 
