@@ -2,7 +2,7 @@
 const express = require('express');
 const db = require('./db');
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 
 // Helper function untuk query database
 const queryDatabase = async (query, params = []) => {
