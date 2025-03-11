@@ -2,7 +2,7 @@
 const express = require('express');
 const db = require('./db');
 const app = express();
-const port = 3000;
+const port = 3306;
 
 // Helper function untuk query database
 const queryDatabase = async (query, params = []) => {
