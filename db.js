@@ -1,13 +1,13 @@
 // db.js
 const mysql = require('mysql2');
 
-// Setup koneksi database
 const pool = mysql.createPool({
-  host: 'hopper.proxy.rlwy.net',  // Ganti dengan host DB yang sesuai
-  user: 'root',       // Ganti dengan user DB yang sesuai
-  password: 'TpjipmvohQviljnxnRghEciPrllfTNYI',       // Ganti dengan password DB yang sesuai
-  database: 'kulinerkitav2', // Ganti dengan nama database yang sesuai
-  port: 35797
+  host: process.env.DB_HOST || 'hopper.proxy.rlwy.net',
+  user: process.env.DB_USER || 'root',
+  password: process.env.DB_PASSWORD || 'TpjipmvohQviljnxnRghEciPrllfTNYI',
+  database: process.env.DB_NAME || 'kulinerkitav2',
+  port: process.env.DB_PORT || 35797
 });
 
-module.exports = pool.promise();  // Menyediakan koneksi pool dengan promise
+module.exports = pool.promise();
+
