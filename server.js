@@ -9,11 +9,6 @@ db.getConnection()
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`✅ Server is running on port ${PORT}`);
-});
-
-
 // Helper function untuk query database
 const queryDatabase = async (query, params = []) => {
   try {
