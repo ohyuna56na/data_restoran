@@ -1,8 +1,13 @@
 const mysql = require('mysql2');
 
 const pool = mysql.createPool({
-  uri: process.env.MYSQL_URL
+  host: process.env.MYSQLHOST || 'mysql.railway.internal',
+  user: process.env.MYSQLUSER || 'root',
+  password: process.env.MYSQLPASSWORD || 'TpjipmvohQviljnxnRghEciPrllfTNYI',
+  database: process.env.MYSQLDATABASE || 'kulinerkitav2',
+  port: process.env.MYSQLPORT || 3306
 });
+
 
 pool.getConnection((err, connection) => {
   if (err) {
