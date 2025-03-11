@@ -1,13 +1,22 @@
 // db.js
-const mysql = require('mysql2');
+const mysql = require('mysql2/promise');
 
-// Setup koneksi database
-const pool = mysql.createPool({
-  host: 'shuttle.proxy.rlwy.net',  // Ganti dengan host Railway
-  user: 'root',                     // Ganti dengan user Railway
-  password: 'OxfpUwiOsETIfOivqxDisumCfYZiWkRE', // Ganti dengan password Railway
-  database: 'railway',               // Ganti dengan nama database Railway
-  port: 3306,
-});
+async function testConnection() {
+  const pool = mysql.createPool({
+    host: 'shuttle.proxy.rlwy.net',
+    user: 'root',
+    password: 'OxfpUwiOsETIfOivqxDisumCfYZiWkRE',
+    database: 'railway',
+    port: 3306,
+  });
 
-module.exports = pool.promise();  // Menyediakan koneksi pool dengan promise
+  try {
+    const connection = await pool.getConnection();
+    console.log('Database connected successfully!');
+    connection.release();
+  } catch (err) {
+    console.error('Database connection error:', err.message);
+  }
+}
+
+testConnection();
