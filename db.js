@@ -3,10 +3,10 @@ const mysql = require('mysql2');
 
 // Setup koneksi database
 const pool = mysql.createPool({
-  host: 'localhost',  // Ganti dengan host DB yang sesuai
-  user: 'root',       // Ganti dengan user DB yang sesuai
-  password: '',       // Ganti dengan password DB yang sesuai
-  database: 'kulinerkitav2', // Ganti dengan nama database yang sesuai
+  host: 'shuttle.proxy.rlwy.net',  // Ganti dengan host Railway
+  user: 'root',                     // Ganti dengan user Railway
+  password: 'OxfpUwiOsETIfOivqxDisumCfYZiWkRE', // Ganti dengan password Railway
+  database: 'railway',               // Ganti dengan nama database Railway
 });
 
 module.exports = pool.promise();  // Menyediakan koneksi pool dengan promise
