@@ -2,7 +2,11 @@
 const express = require('express');
 const db = require('./db');
 const app = express();
-const port = process.env.PORT || 3000;  // Menggunakan PORT dari Railway jika tersedia
+const port = process.env.PORT || 8080;
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
+
 
 // Helper function untuk query database
 const queryDatabase = async (query, params = []) => {
