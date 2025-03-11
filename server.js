@@ -2,7 +2,7 @@
 const express = require('express');
 const db = require('./db');
 const app = express();
-const port = process.env.PORT || 8080;
+const port = 3000;
 
 // Helper function untuk query database
 const queryDatabase = async (query, params = []) => {
@@ -15,7 +15,7 @@ const queryDatabase = async (query, params = []) => {
   }
 };
 
-// Endpoint untuk restoran dengan pencarian dinamisnp
+// Endpoint untuk restoran dengan pencarian dinamis
 app.get('/restaurants/search', async (req, res) => {
   const { 
     city, 
